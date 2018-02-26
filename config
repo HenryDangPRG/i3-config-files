@@ -163,24 +163,22 @@ bar {
 	}
 }
 
-bindsym $mod+Shift+m exec "xinput disable 12"
-bindsym $mod+Shift+n exec "xinput enable 12"
+#Show WiFi icon at bottom right
+exec "nm-applet"
 
-# Disable touch screen and mouse
-exec "xinput disable 12"
-exec "xinput disable 11"
+#auto-set wallpaper
+exec "nitrogen --restore"
 
+exec --no-startup-id compton
+# Transparent terminals
+exec --no-startup-id compton
+
+# volume controller
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +2%"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -2%"
 bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 
-# Set wallpaper automatically
-exec "nitrogen --restore &"
-
-#Show WiFi icon at bottom right
-exec "nm-applet"
-
-#Increase/Decrease brightness (note chmod is for i3 to access brightness)
+#adjust brightness
 bindsym XF86MonBrightnessUp exec light -A 2
 bindsym XF86MonBrightnessDown exec light -U 2
 
@@ -201,16 +199,3 @@ for_window [class="^.*"] border pixel 5
 #Change color to a bright teal for title bars
 # class                 border  backgr. text    indicator child_border
 client.focused          #00ffff #00ffff #00ffff #00ffff #00ffff
-
-#Enable compton for transparent terminals
-exec --no-startup-id compton
-
-#Disable tap to click
-exec "synclient MaxTapTime=0"
-exec --no-startup-id "libreoffice ~/Desktop/Schedule.ods"
-
-#Start redshift
-exec --no-startup-id redshift-gtk -r 
-
-#no two finger scrolling
-exec synclient VertTwoFingerScroll=0
