@@ -163,6 +163,10 @@ bar {
 	}
 }
 
+# touchpad -- n for left-handed, m for right-handed
+bindsym $mod+shift+n exec "xinput set-button-map 12 3 2 1"
+bindsym $mod+shift+m exec "xinput set-button-map 12 1 2 3"
+
 #Show WiFi icon at bottom right
 exec "nm-applet"
 
@@ -172,6 +176,12 @@ exec "nitrogen --restore"
 exec --no-startup-id compton
 # Transparent terminals
 exec --no-startup-id compton
+
+#open schedule
+exec "libreoffice ~/Schedule.ods"
+
+# open redshift for color changing
+exec --no-startup-id "sh -c 'sleep 10; exec redshift -t 6500:2300 -r'"
 
 # volume controller
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +2%"
