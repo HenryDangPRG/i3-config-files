@@ -163,40 +163,14 @@ bar {
 	}
 }
 
-# touchpad -- n for left-handed, m for right-handed
-bindsym $mod+shift+n exec "xinput set-button-map 12 3 2 1"
-bindsym $mod+shift+m exec "xinput set-button-map 12 1 2 3"
-
 #Show WiFi icon at bottom right
 exec "nm-applet"
-
-#auto-set wallpaper
-exec "nitrogen --restore"
-
-exec --no-startup-id compton
-# Transparent terminals
-exec --no-startup-id compton
-
-#open schedule
-exec "libreoffice ~/Schedule.ods"
-
-# open redshift for color changing
-exec --no-startup-id "sh -c 'sleep 10; exec redshift -t 6500:2300 -r'"
-
-# volume controller
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +2%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -2%"
-bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
-
-#adjust brightness
-bindsym XF86MonBrightnessUp exec light -A 2
-bindsym XF86MonBrightnessDown exec light -U 2
 
 #Sets gaps + smart settings if there's only 1 window
 gaps inner 10
 gaps outer 5
 smart_borders on
-#smart_gaps on
+smart_gaps on
 
 #Set super fancy nonfunctional gaps for workspace 10
 
