@@ -123,6 +123,13 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# bind windows key to left click
+bindcode 133 exec "xdotool click 1"
+
+# bind windows + mod key to right click
+bindcode $mod+133 exec "xdotool click 3"
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -165,17 +172,6 @@ bar {
 
 #Show WiFi icon at bottom right
 exec "nm-applet"
-
-#Sets gaps + smart settings if there's only 1 window
-gaps inner 10
-gaps outer 5
-smart_borders on
-smart_gaps on
-
-#Set super fancy nonfunctional gaps for workspace 10
-
-workspace 10 gaps outer 80
-workspace 10 gaps inner 85
 
 #Remove title bars
 for_window [class="^.*"] border pixel 5
